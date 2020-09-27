@@ -12,7 +12,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Install SWI-Prolog
-        run: apt-get install swi-prolog
+        run: sudo apt-get install swi-prolog
       - name: Build HTML
         run: swipl -s recipes.prolog
       - name: Deploy
