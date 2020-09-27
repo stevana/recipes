@@ -204,15 +204,23 @@ write_html_page(File, Style, Head, Body) :-
     print_html(Handle, HTML),
     close(Handle).
 
+replace_space([], []).
+replace_space([S|Ss], [T|Ts]) :-
+    atomic_list_concat(Words, ' ', S),
+    atomic_list_concat(Words, '_', T),
+    replace_space(Ss, Ts).
+
 write_html_dishes(File, Dishes) :-
     findall(N, query_name(N, _), Ns),
+    replace_space(Dishes, Dishes2),
     write_html_page(File,
         [title('Food database'),
          style('#navigation ul {list-style-type: none; margin: 0; padding: 0;}')],
         [h1('Food database'),
          div(id(navigation),
              ul(\items(Ns))),
-         ul(\items(Dishes))]).
+         ul(\items(Dishes2))]). % Maybe we want to send both the spaced and
+                                % underscored version of the dish here.
 
 items([])     --> [].
 items([I|Is]) -->
