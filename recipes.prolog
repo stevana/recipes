@@ -30,6 +30,7 @@ recipe(knödel).
 contains(yeast, knödel).
 contains(milk, knödel).
 contains('stale bread', knödel).
+contains(egg, knödel).
 
 % Chili
 recipe(chili).
