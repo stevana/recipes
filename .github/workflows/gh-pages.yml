@@ -14,7 +14,7 @@ jobs:
       - name: Install SWI-Prolog
         run: sudo apt-get install swi-prolog
       - name: Build HTML
-        run: swipl -s recipes.prolog
+        run: swipl -s src/main.prolog
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.6.1
         with:
