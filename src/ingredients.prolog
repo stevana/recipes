@@ -1,24 +1,53 @@
 % ----------------------------------------------------------------------
 % Vegetables in season
 
-season(aubergine, jan, 50).
-season(aubergine, feb, 50).
-season(aubergine, mar, 50).
-season(aubergine, apr, 50).
-season(aubergine, may, 100).
-season(aubergine, jun, 100).
-season(aubergine, jul, 100).
-season(aubergine, aug, 200).
-season(aubergine, sep, 200).
-season(aubergine, oct, 50).
-season(aubergine, nov, 50).
-season(aubergine, dec, 50).
+season(aubergine, 1, 50).
+season(aubergine, 2, 50).
+season(aubergine, 3, 50).
+season(aubergine, 4, 50).
+season(aubergine, 5, 100).
+season(aubergine, 6, 100).
+season(aubergine, 7, 100).
+season(aubergine, 8, 200).
+season(aubergine, 9, 200).
+season(aubergine, 10, 50).
+season(aubergine, 11, 50).
+season(aubergine, 12, 50).
 
-season(celery, sep, 200).
+season(celery, 9, 200).
+season(celery, 10, 200).
 
-season(cauliflower, sep, 200).
+season(cauliflower, 9, 200).
+season(cauliflower, 10, 200).
 
-season('green pea', sep, 50).
+season('bush bean', 9, 200).
+season('bush bean', 10, 200).
+season('runner bean', 9, 200).
+season('runner bean', 10, 200).
+
+season(broccoli, 9, 200).
+season(broccoli, 10, 150).
+
+season(mushroom, 9, 200).
+season(mushroom, 10, 200).
+
+season(chicory, 9, 50).
+season(chicory, 10, 200).
+
+season('pak choi', 9, 200).
+season('pak choi', 10, 200).
+
+season('broad bean', 9, 50).
+season('broad bean', 10, 25).
+
+season('gherkins', 9, 200).
+season('gherkins', 10, 150).
+
+season('green pea', 9, 50).
+season('green pea', 10, 25).
+
+season(fennel, 9, 200).
+season(fennel, 10, 200).
 
 in_season(M, V) :-
     season(V, M, 200).
@@ -42,6 +71,19 @@ dish_in_season(M, I, D) :-
 %?- dish_in_season(sep, I, D).
 %@ I = celery ,
 %@ D = bolognese ;
+
+month(Month) :-
+    get_time(Stamp),
+    stamp_date_time(Stamp, DateTime, local),
+    date_time_value(month, DateTime, Month).
+
+%?- month(Month).
+%@ Month = 9.
+
+dish_in_season_this_month(I, S, D) :-
+    month(M),
+    dish_in_season(M, I, D),
+    season(I, M, S).
 
 % ----------------------------------------------------------------------
 
