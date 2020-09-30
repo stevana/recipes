@@ -22,6 +22,38 @@ print_carbs(C) :-
 print_ingredient(I) :-
     format('  * ~w~n', [I]).
 
+print_table1(P) :-
+    findall(X, call(P, X), Xs),
+    term_to_atom(P, Name),
+    writeln(Name),
+    writeln("========"),
+    maplist(writeln, Xs).
+
+map_list_to_pairs2(_, _, [], []).
+map_list_to_pairs2(P, Q, [X|Xs], [K-V|KVs]) :-
+    call(P, X, K),
+    call(Q, X, V),
+    map_list_to_pairs2(P, Q, Xs, KVs).
+
+print_table2(R) :-
+    term_to_atom(R, Name),
+    writeln(Name),
+    writeln("========"),
+    findall([X, Y], call(R, X, Y), XYs),
+    map_list_to_pairs2(nth1(1), nth1(2), XYs, Ps),
+    group_pairs_by_key(Ps, Qs),
+    print(Qs).
+
+flip(R, X, Y) :- call(R, Y, X).
+
+portray([]).
+portray([K-Vs|KVs]) :-
+    writeln(K),
+    writeln("----"),
+    maplist(writeln, Vs),
+    nl,
+    portray(KVs).
+
 % ----------------------------------------------------------------------
 % Pretty printing HTML
 
@@ -39,23 +71,6 @@ replace_space([S|Ss], [T|Ts]) :-
     atomic_list_concat(Words, '_', T),
     replace_space(Ss, Ts).
 
-write_html_dishes(File, Dishes) :-
-    findall(N, query_name(N, _), Ns),
-    replace_space(Dishes, Dishes2),
-    write_html_page(File,
-        [title('Food database'),
-         style('#navigation ul {list-style-type: none; margin: 0; padding: 0;}')],
-        [h1('Food database'),
-         div(id(navigation),
-             ul(\items(Ns))),
-         ul(\items(Dishes2))]). % Maybe we want to send both the spaced and
-                                % underscored version of the dish here.
-
-items([])     --> [].
-items([I|Is]) -->
-    html(li(a(href(I + '.html'), I))),
-    items(Is).
-
 query_name("index", dish).
 query_name("fast_dinner", fast_dinner(_)).
 query_name("pasta_dishes", pasta_dishes).
@@ -69,6 +84,18 @@ write_html_queries([Q|Qs]) :-
     atomics_to_string(['html/', Name, '.html'], F),
     write_html_dishes(F, Ds),
     write_html_queries(Qs).
+
+write_html_dishes(File, Dishes) :-
+    findall(N, query_name(N, _), Ns),
+    replace_space(Dishes, Dishes2),
+    write_html_page(File,
+                    [title('Food database'),
+                     style('#navigation ul {list-style-type: none; margin: 0; padding: 0;}')],
+                    [h1('Food database'),
+                     div(id(navigation),
+                         ul(\items(Ns))),
+                     ul(\items(Dishes2))]). % Maybe we want to send both the spaced and
+                                            % underscored version of the dish here.
 
 write_html_dish([]).
 write_html_dish([R|Rs]) :-
@@ -94,7 +121,18 @@ write_html_recipe(File, R) :-
                      ul([\items(Cs1),
                         \ingredients(Cs2)])]).
 
+items([])     --> [].
+items([I|Is]) -->
+    html(li(a(href(I + '.html'), I))),
+    items(Is).
+
 ingredients([])     --> [].
 ingredients([I|Is]) -->
     html(li(I)),
     ingredients(Is).
+
+generate_html :-
+    findall(Q, query_name(_, Q), Qs),
+    write_html_queries(Qs),
+    findall(R, recipe(R), Rs),
+    write_html_dish(Rs).
