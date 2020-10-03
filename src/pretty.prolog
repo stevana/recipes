@@ -29,30 +29,58 @@ print_table1(P) :-
     writeln("========"),
     maplist(writeln, Xs).
 
+% print_table1(dish).
+
 map_list_to_pairs2(_, _, [], []).
 map_list_to_pairs2(P, Q, [X|Xs], [K-V|KVs]) :-
     call(P, X, K),
     call(Q, X, V),
     map_list_to_pairs2(P, Q, Xs, KVs).
 
+tabulate2(R, KVs) :-
+    findall([X, Y], call(R, X, Y), XYs),
+    map_list_to_pairs2(nth1(1), nth1(2), XYs, Ps),
+    group_pairs_by_key(Ps, KVs).
+
 print_table2(R) :-
+    tabulate2(R, KVs),
     term_to_atom(R, Name),
     writeln(Name),
     writeln("========"),
-    findall([X, Y], call(R, X, Y), XYs),
-    map_list_to_pairs2(nth1(1), nth1(2), XYs, Ps),
-    group_pairs_by_key(Ps, Qs),
-    print(Qs).
+    print(KVs).
 
 flip(R, X, Y) :- call(R, Y, X).
 
-portray([]).
-portray([K-Vs|KVs]) :-
+% print_table2(flip(contains))
+
+annotate([], _, []).
+annotate([K-Vs|KVs1], P, [K-Ws|KVs2]) :-
+    annotate_v(Vs, P, Ws),
+    annotate(KVs1, P, KVs2).
+
+annotate_v([], _, []).
+annotate_v([V|Vs], P, [V-A|Ws]) :-
+    call(P, V, A),
+    annotate_v(Vs, P, Ws).
+
+% tabulate2(flip(contains), KVs), annotate(KVs, season2, KVAs).
+
+pp_v([]).
+pp_v([V-A|VAs]) :-
+    write(V),
+    write(" "),
+    writeln(A),
+    pp_v(VAs).
+
+pp_kvs([]).
+pp_kvs([K-Vs|KVs]) :-
     writeln(K),
     writeln("----"),
-    maplist(writeln, Vs),
+    pp_v(Vs),
     nl,
-    portray(KVs).
+    pp_kvs(KVs).
+
+% tabulate2(flip(contains), KVs), annotate(KVs, season2, KVAs), pp_kvs(KVAs), false.
 
 % ----------------------------------------------------------------------
 % Pretty printing HTML

@@ -13,6 +13,11 @@
 % ----------------------------------------------------------------------
 % Vegetables in season
 
+season2(I, S) :-
+    ( season(I, 10, T) -> S = T
+    ; S = 0
+    ).
+
 season(aubergine, 1, 50).
 season(aubergine, 2, 50).
 season(aubergine, 3, 50).
