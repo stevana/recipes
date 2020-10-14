@@ -120,6 +120,7 @@ recipe(paprikash).
 meal(dinner, paprikash).
 time(60, paprikash).
 contains(chicken, paprikash).
+contains(mushrooms, paprikash).
 contains(onions, paprikash).
 contains(butter, paprikash).
 contains('sweet paprika', paprikash).
