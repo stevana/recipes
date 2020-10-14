@@ -94,26 +94,26 @@ carb(bread, menemen).
 % Moussaka
 recipe(moussaka).
 meal(dinner, moussaka).
-time(120, mousakka).
-contains('olive oil', mousakka).
-contains(onion, mousakka).
-contains(potatoes, mousakka).
-contains(aubergine, mousakka).
-contains('lamb mince', mousakka).
-contains(garlic, mousakka).
-contains(cinnamon, mousakka).
-contains(allspice, mousakka).
-contains('bay leaf', mousakka).
-contains('red wine', mousakka).
-contains('canned tomatoes', mousakka).
-contains(butter, mousakka).
-contains(flour, mousakka).
-contains(milk, mousakka).
-contains(parmesan, mousakka).
-contains('greek yogurt', mousakka).
-contains(egg, mousakka).
-diet(vegetarian, mousakka).
-card(potatoes, mousakka).
+time(120, moussaka).
+contains('olive oil', moussaka).
+contains(onion, moussaka).
+contains(potatoes, moussaka).
+contains(aubergine, moussaka).
+contains('lamb mince', moussaka).
+contains(garlic, moussaka).
+contains(cinnamon, moussaka).
+contains(allspice, moussaka).
+contains('bay leaf', moussaka).
+contains('red wine', moussaka).
+contains('canned tomatoes', moussaka).
+contains(butter, moussaka).
+contains(flour, moussaka).
+contains(milk, moussaka).
+contains(parmesan, moussaka).
+contains('greek yogurt', moussaka).
+contains(egg, moussaka).
+diet(vegetarian, moussaka).
+card(potatoes, moussaka).
 
 % ----------------------------------------------------------------------
 % Dietary facts
