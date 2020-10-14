@@ -105,7 +105,7 @@ contains(cinnamon, moussaka).
 contains(allspice, moussaka).
 contains('bay leaf', moussaka).
 contains('red wine', moussaka).
-contains('canned tomatoes', moussaka).
+contains(tomatoes, moussaka).
 contains(butter, moussaka).
 contains(flour, moussaka).
 contains(milk, moussaka).
@@ -113,7 +113,29 @@ contains(parmesan, moussaka).
 contains('greek yogurt', moussaka).
 contains(egg, moussaka).
 diet(vegetarian, moussaka).
-card(potatoes, moussaka).
+carb(potatoes, moussaka).
+
+% Paprikash
+recipe(paprikash).
+meal(dinner, paprikash).
+time(60, paprikash).
+contains(chicken, paprikash).
+contains(onions, paprikash).
+contains(butter, paprikash).
+contains('sweet paprika', paprikash).
+contains('green peppers', paprikash).
+contains(tomatoes, paprikash).
+contains(garlic, paprikash).
+contains(flour, paprikash).
+contains('sour cream', paprikash).
+diet(vegetarian, paprikash).
+carb(spätzle).
+carb(pasta).
+
+recipe(spätzle).
+contains(eggs, spätzle).
+contains(flour, spätzle).
+contains(salt, spätzle).
 
 % ----------------------------------------------------------------------
 % Dietary facts
