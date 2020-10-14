@@ -129,8 +129,8 @@ contains(garlic, paprikash).
 contains(flour, paprikash).
 contains('sour cream', paprikash).
 diet(vegetarian, paprikash).
-carb(spätzle).
-carb(pasta).
+carb(spätzle, paprikash).
+carb(pasta, paprikash).
 
 recipe(spätzle).
 contains(eggs, spätzle).
