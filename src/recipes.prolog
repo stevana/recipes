@@ -91,6 +91,30 @@ contains('white cheese', menemen).
 diet(vegetarian, menemen).
 carb(bread, menemen).
 
+% Moussaka
+recipe(moussaka).
+meal(dinner, moussaka).
+time(120, mousakka).
+contains('olive oil', mousakka).
+contains(onion, mousakka).
+contains(potatoes, mousakka).
+contains(aubergine, mousakka).
+contains('lamb mince', mousakka).
+contains(garlic, mousakka).
+contains(cinnamon, mousakka).
+contains(allspice, mousakka).
+contains('bay leaf', mousakka).
+contains('red wine', mousakka).
+contains('canned tomatoes', mousakka).
+contains(butter, mousakka).
+contains(flour, mousakka).
+contains(milk, mousakka).
+contains(parmesan, mousakka).
+contains('greek yogurt', mousakka).
+contains(egg, mousakka).
+diet(vegetarian, mousakka).
+card(potatoes, mousakka).
+
 % ----------------------------------------------------------------------
 % Dietary facts
 
