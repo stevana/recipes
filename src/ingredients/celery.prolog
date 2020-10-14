@@ -1,4 +1,4 @@
-tastes(celery, astringent).
+taste(celery, astringent).
 
 has_function(celery, cooling).
 has_weight(celery, light).

@@ -1,4 +1,4 @@
-tastes(cauliflower, astringent).
+taste(cauliflower, astringent).
 
 has_botanical_relatives(cauliflower, broccoli).
 has_botanical_relatives(cauliflower, 'brussels sprouts').

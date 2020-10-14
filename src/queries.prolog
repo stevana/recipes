@@ -93,3 +93,8 @@ pair(S, J, I) :-
 %@ I = cheese ;
 %@ I = cream ;
 %@ I = milk ;
+
+two_ingredient_pairings(I, J, Ps) :-
+    setof(K, pairing(_, I, K), Ks),
+    setof(L, pairing(_, J, L), Ls),
+    intersection(Ks, Ls, Ps).

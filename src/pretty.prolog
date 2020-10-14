@@ -59,11 +59,32 @@ annotate([K-Vs|KVs1], P, [K-Ws|KVs2]) :-
     annotate(KVs1, P, KVs2).
 
 annotate_v([], _, []).
-annotate_v([V|Vs], P, [V-A|Ws]) :-
+annotate_v([V|Vs], P, [W|Ws]) :-
     call(P, V, A),
+    empty_assoc(Assoc),
+    term_to_atom(P, Name),
+    put_assoc(Name, Assoc, A, Assoc2),
+    W = V-Assoc2,
     annotate_v(Vs, P, Ws).
 
 % tabulate2(flip(contains), KVs), annotate(KVs, season2, KVAs).
+
+nonEmpty([_|_]).
+
+anno(X, P, annotated(X, A)) :-
+    atom(X),
+    empty_assoc(A0),
+    term_to_atom(P, N),
+    findall(R, call(P, X, R), Rs),
+    ( nonEmpty(Rs) -> put_assoc(N, A0, Rs, A)
+    ; A = A0
+    ).
+anno(annotated(X, A), P, annotated(X, A2)) :-
+    findall(R, call(P, X, R), Rs),
+    term_to_atom(P, N),
+    ( nonEmpty(Rs) -> put_assoc(N, A, Rs, A2)
+    ; A2 = A
+    ).
 
 pp_v([]).
 pp_v([V-A|VAs]) :-

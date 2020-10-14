@@ -1,11 +1,12 @@
-:- multifile(tastes/2,
-             has_function/2,
-             has_weight/2,
-             has_volume/2,
-             techniques/2,
-             pairing/3,
-             affinities/2).
+:- multifile([taste/2,
+              has_function/2,
+              has_weight/2,
+              has_volume/2,
+              techniques/2,
+              pairing/3,
+              affinities/2]).
 
+:- consult('ingredients/aubergine').
 :- consult('ingredients/cauliflower').
 :- consult('ingredients/celery').
 :- consult('ingredients/pumpkin').
@@ -16,6 +17,8 @@ season2(I, S) :-
     ( season(I, 10, T) -> S = T
     ; S = 0
     ).
+
+season3(I, S) :- season(I, 10, S).
 
 season(aubergine, 1, 50).
 season(aubergine, 2, 50).
