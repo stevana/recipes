@@ -61,10 +61,9 @@ annotate([K-Vs|KVs1], P, [K-Ws|KVs2]) :-
 annotate_v([], _, []).
 annotate_v([V|Vs], P, [W|Ws]) :-
     call(P, V, A),
-    empty_assoc(Assoc),
+    dict_create(Dict, a, []),
     term_to_atom(P, Name),
-    put_assoc(Name, Assoc, A, Assoc2),
-    W = V-Assoc2,
+    W = V-Dict.put(Name, A),
     annotate_v(Vs, P, Ws).
 
 % tabulate2(flip(contains), KVs), annotate(KVs, season2, KVAs).
