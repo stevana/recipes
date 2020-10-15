@@ -10,6 +10,7 @@
 :- consult('ingredients/cauliflower').
 :- consult('ingredients/celery').
 :- consult('ingredients/pumpkin').
+:- consult('ingredients/mushrooms').
 
 % Vegetables in season
 
@@ -47,6 +48,7 @@ season('runner bean', 10, 200).
 season(broccoli, 9, 200).
 season(broccoli, 10, 150).
 
+% champignon mushrooms
 season(mushrooms, 9, 200).
 season(mushrooms, 10, 200).
 
@@ -81,9 +83,6 @@ season(kohlrabi, 10, 200).
 
 season(pumpkin, 9, 200).
 season(pumpkin, 10, 200).
-season(squash, 9, 200).
-season(squash, 10, 200).
-
 season(squash, 9, 200).
 season(squash, 10, 200).
 
@@ -180,11 +179,14 @@ aromatic('bay leaf').
 herb(tarragon).
 herb(thyme).
 herb(parsley).
+herb('flat-leaf parsley').
 herb(mint).
 herb(dill).
 herb(coriander).
 herb(chervil).
 herb(chives).
+herb(marjoram).
+herb(rosemary).
 
 spice(nutmeg).
 spice('curry powder').
@@ -204,6 +206,7 @@ spice('white pepper').
 spice('red pepper flakes').
 
 fat('olive oil').
+fat('peanut oil').
 fat('canola oil'). % Rapsöl
 fat('grapeseed oil').
 fat('vegetable oil').
@@ -212,6 +215,8 @@ fat('brown butter').
 
 acid('red wine vinegar').
 acid('white wine vinegar').
+acid('balsamic vinegar').
+acid('sherry vinegar').
 acid(lemon).
 acid(lime).
 acid(orange).

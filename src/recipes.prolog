@@ -113,7 +113,7 @@ contains(parmesan, moussaka).
 contains('greek yogurt', moussaka).
 contains(egg, moussaka).
 diet(vegetarian, moussaka).
-carb(potatoes, moussaka).
+carb(potatoes, moussaka). % XXX: Printed twice...
 
 % Paprikash
 recipe(paprikash).
@@ -137,6 +137,31 @@ recipe(spätzle).
 contains(eggs, spätzle).
 contains(flour, spätzle).
 contains(salt, spätzle).
+
+% Mushroom soup
+recipe('mushroom soup').
+meal(dinner, 'mushroom soup').
+time(30, 'mushroom soup').
+contains(mushrooms, 'mushroom soup').
+contains(butter, 'mushroom soup').
+contains(shallots, 'mushroom soup').
+contains(salt, 'mushroom soup').
+contains('black pepper', 'mushroom soup').
+contains(butter, 'mushroom soup').
+contains(flour, 'mushroom soup').
+contains(milk, 'mushroom soup').
+contains('bay leaf', 'mushroom soup').
+contains(onions, 'mushroom soup').
+contains(cloves, 'mushroom soup').
+contains(nutmeg, 'mushroom soup').
+contains(cream, 'mushroom soup').
+contains(milk, 'mushroom soup').
+contains(croutons, 'mushroom soup').
+contains(butter, 'mushroom soup').
+contains(parsley, 'mushroom soup').
+contains('dry sherry', 'mushroom soup').
+diet(vegetarian, 'mushroom soup').
+carb(bread, 'mushroom soup').
 
 % ----------------------------------------------------------------------
 % Dietary facts

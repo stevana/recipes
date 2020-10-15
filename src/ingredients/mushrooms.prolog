@@ -106,10 +106,13 @@ pairing(great, 'sherry, dry', mushrooms). % XXX:  (e.g., manzanilla)
 pairing(good, 'sour cream', mushrooms).
 pairing(good, 'soy sauce', mushrooms).
 pairing(good, spinach, mushrooms).
-pairing(great, stock, mushrooms). % XXX:  chicken, dashi, mushroom, veal
+pairing(great, 'chicken stock', mushrooms).
+pairing(great, 'dashi stock', mushrooms).
+pairing(great, 'mushroom stock', mushrooms).
+pairing(great, 'veal stock', mushrooms).
 pairing(good, sugar, mushrooms).
 pairing(great, tarragon, mushrooms).
-pairing(great, 'thyme, fresh', mushrooms).
+pairing(great, thyme, mushrooms).
 pairing(good, tomatoes, mushrooms).
 pairing(good, 'truffle oil', mushrooms).
 pairing(good, veal, mushrooms).
