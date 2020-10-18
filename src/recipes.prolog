@@ -109,7 +109,7 @@ contains(tomatoes, moussaka).
 contains(butter, moussaka).
 contains(flour, moussaka).
 contains(milk, moussaka).
-contains(parmesan, moussaka).
+contains('parmesan cheese', moussaka).
 contains('greek yogurt', moussaka).
 contains(egg, moussaka).
 diet(vegetarian, moussaka).

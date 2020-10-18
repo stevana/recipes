@@ -20,7 +20,7 @@ pairing(good, carrots, pumpkin).
 pairing(good, cayenne, pumpkin).
 pairing(excellent, 'feta cheese', pumpkin).
 pairing(excellent, 'gruyère', pumpkin).
-pairing(excellent, 'parmesan', pumpkin).
+pairing(excellent, 'parmesan cheese', pumpkin).
 pairing(good, 'chile peppers', pumpkin).
 pairing(good, 'white chocolate', pumpkin).
 pairing(good, cilantro, pumpkin).

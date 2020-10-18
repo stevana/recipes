@@ -31,6 +31,55 @@ print_table1(P) :-
 
 % print_table1(dish).
 
+seasonal :-
+    month(Month),
+    findall(a(I, Score), (season(I, Month, Score), Score >= 100), Is),
+    sort(1, @=<, Is, SortedBySeason),
+    sort(2, @>=, SortedBySeason, SortedByName),
+    maplist(ppa, SortedByName).
+
+season_colour(100, 100).
+season_colour(150, 200).
+season_colour(200, 255).
+
+ppa(a(I, S)) :-
+    season_colour(S, Colour),
+    ansi_format([fg(0, Colour, 0)], '~w~n', [I]).
+
+ppb(b(I, 4)) :-
+    atom_string(I, S),
+    string_upper(S, U),
+    ansi_format([bold], '*~s ~n', [U]).
+ppb(b(I, 3)) :-
+    atom_string(I, S),
+    string_upper(S, U),
+    ansi_format([bold], '~s ~n', [U]).
+ppb(b(I, 2)) :-
+    ansi_format([bold], '~w ~n', [I]).
+ppb(b(I, 1)) :-
+    ansi_format([], '~w ~n', [I]).
+
+score(exceptional, 4).
+score(excellent,   3).
+score(great,       2).
+score(good,        1).
+
+goes_with(I) :-
+    findall(b(J, SS), (pairing(S, J, I), score(S, SS)), Is),
+    sort(1, @=<, Is, SortedByScore),
+    sort(2, @>=, SortedByScore, SortedByName),
+    maplist(ppb, SortedByName).
+
+both(I, J) :-
+    findall(Ps, two_ingredient_pairings(I, J, Ps), Pss),
+    sort(1, @>=, Pss, Qss),
+    maplist(ppc, Qss).
+
+%?- both(aubergine, mushrooms).
+
+ppc(K-Vs) :-
+    maplist([V]>>ppb(b(V, K)), Vs).
+
 map_list_to_pairs2(_, _, [], []).
 map_list_to_pairs2(P, Q, [X|Xs], [K-V|KVs]) :-
     call(P, X, K),

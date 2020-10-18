@@ -13,57 +13,61 @@ techniques(celery, sauté).
 techniques(celery, steam).
 techniques(celery, stir-fry).
 
-pairing(good, celery, basil).
-pairing(good, celery, 'bay leaf').
-pairing(good, celery, beets).
-pairing(great, celery, butter).
-pairing(good, celery, capers).
-pairing(good, celery, carrots).
-pairing(good, celery, cheese). % feta, goat, Gruyère, Parmesan, Roquefort
-pairing(great, celery, 'blue cheese').
-pairing(good, celery, chervil).
-pairing(good, celery, chicken). % and other poultry
-pairing(good, celery, chickpeas). %  and hummus"
-pairing(good, celery, chives).
-pairing(good, celery, cream).
-pairing(good, celery, 'cream cheese').
-pairing(good, celery, curry).
-pairing(good, celery, dill).
-pairing(good, celery, eggs). % hard-boiled)
-pairing(good, celery, fish).
-pairing(good, celery, garlic).
-pairing(good, celery, legumes).
-pairing(good, celery, lemon). % lemon juice.
-pairing(good, celery, lovage).
-pairing(good, celery, mushrooms). % wild
-pairing(good, celery, mustard). % esp. Dijon"
-pairing(good, celery, 'olive oil').
-pairing(good, celery, onion). % esp. red
-pairing(good, celery, paprika).
-pairing(good, celery, parsley).
-pairing(good, celery, peanuts).
-pairing(good, celery, 'peanut butter').
-pairing(good, celery, 'white pepper').
-pairing(good, celery, potatoes).
-pairing(good, celery, rice).
-pairing(good, celery, 'potato salad').
-pairing(good, celery, 'chicken salad').
-pairing(good, celery, 'shrimp salad').
-pairing(good, celery, 'tuna salad').
-pairing(good, celery, salt).
-pairing(good, celery, scallions).
-pairing(good, celery, shallots).
-pairing(good, celery, shellfish).
-pairing(good, celery, 'stir-fried dishes').
-pairing(great, celery, 'chicken stock').
-pairing(great, celery, 'vegetable stock').
-pairing(good, celery, stuffings).
-pairing(good, celery, tarragon).
-pairing(good, celery, thyme).
-pairing(good, celery, tomatoes).
-pairing(good, celery, 'tomato juice').
-pairing(good, celery, 'black truffles').
-pairing(good, celery, turnips).
+pairing(good, basil, celery).
+pairing(good, 'bay leaf', celery).
+pairing(good, beets, celery).
+pairing(great, butter, celery).
+pairing(good, capers, celery).
+pairing(good, carrots, celery).
+pairing(good, 'feta cheese', celery).
+pairing(good, 'goat cheese', celery).
+pairing(good, 'gruyère cheese', celery).
+pairing(good, 'parmesan cheese', celery).
+pairing(good, 'roquefort cheese', celery).
+pairing(great, 'blue cheese', celery).
+pairing(good, chervil, celery).
+pairing(good, chicken, celery). % and other poultry
+pairing(good, chickpeas, celery). %  and hummus"
+pairing(good, chives, celery).
+pairing(good, cream, celery).
+pairing(good, 'cream cheese', celery).
+pairing(good, curry, celery).
+pairing(good, dill, celery).
+pairing(good, eggs). % hard-boiled, celery)
+pairing(good, fish, celery).
+pairing(good, garlic, celery).
+pairing(good, legumes, celery).
+pairing(good, lemon, celery). % lemon juice.
+pairing(good, lovage, celery).
+pairing(good, mushrooms, celery). % wild
+pairing(good, mustard, celery). % esp. Dijon"
+pairing(good, 'olive oil', celery).
+pairing(good, onion, celery). % esp. red
+pairing(good, paprika, celery).
+pairing(good, parsley, celery).
+pairing(good, peanuts, celery).
+pairing(good, 'peanut butter', celery).
+pairing(good, 'white pepper', celery).
+pairing(good, potatoes, celery).
+pairing(good, rice, celery).
+pairing(good, 'potato salad', celery).
+pairing(good, 'chicken salad', celery).
+pairing(good, 'shrimp salad', celery).
+pairing(good, 'tuna salad', celery).
+pairing(good, salt, celery).
+pairing(good, scallions, celery).
+pairing(good, shallots, celery).
+pairing(good, shellfish, celery).
+pairing(good, 'stir-fried dishes', celery).
+pairing(great, 'chicken stock', celery).
+pairing(great, 'vegetable stock', celery).
+pairing(good, stuffings, celery).
+pairing(good, tarragon, celery).
+pairing(good, thyme, celery).
+pairing(good, tomatoes, celery).
+pairing(good, 'tomato juice', celery).
+pairing(good, 'black truffles', celery).
+pairing(good, turnips, celery).
 
 affinities(celery, [carrot, onion]). % mirepoix
 affinities(celery, [tarragon, vinegar]).

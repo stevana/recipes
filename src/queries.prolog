@@ -1,3 +1,5 @@
+:- set_prolog_flag(answer_write_options, [max_depth(100)]).
+
 :- consult(recipes).
 :- consult(ingredients).
 
@@ -94,7 +96,19 @@ pair(S, J, I) :-
 %@ I = cream ;
 %@ I = milk ;
 
-two_ingredient_pairings(I, J, Ps) :-
-    setof(K, pairing(_, I, K), Ks),
-    setof(L, pairing(_, J, L), Ls),
+score1(exceptional, 4).
+score1(excellent,   3).
+score1(great,       2).
+score1(good,        1).
+
+combined_score(X, Y, S) :-
+    score1(X, S1),
+    score1(Y, S2),
+    plus(S1, S2, Sum),
+    S is round(Sum / 2).
+
+two_ingredient_pairings(I, J, CombinedScore-Ps) :-
+    setof(K, pairing(S, K, I), Ks),
+    setof(L, pairing(T, L, J), Ls),
+    combined_score(S, T, CombinedScore),
     intersection(Ks, Ls, Ps).

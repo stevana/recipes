@@ -26,15 +26,15 @@ pairing(good, 'cabbage, green', aubergine).
 pairing(good, capers, aubergine).
 pairing(good, cashews, aubergine).
 pairing(good, cayenne, aubergine).
-pairing(excellent, parmesan, aubergine).
-pairing(excellent, ricotta, aubergine).
+pairing(excellent, 'parmesan cheese', aubergine).
+pairing(excellent, 'ricotta cheese', aubergine).
 pairing(excellent, 'ricotta salata', aubergine).
 pairing(great, 'emmental cheese', aubergine).
 pairing(great, 'feta cheese', aubergine).
 pairing(great, 'goat cheese', aubergine).
-pairing(great, gruyere, aubergine).
+pairing(great, 'gruyere cheese', aubergine).
 pairing(great, 'mozzarella cheese', aubergine).
-pairing(great, pecorino, aubergine).
+pairing(great, 'pecorino cheese', aubergine).
 pairing(great, 'swiss cheese', aubergine).
 pairing(good, chickpeas, aubergine).
 pairing(great, 'chile peppers', aubergine). % XXX:  esp. fresh green
@@ -51,7 +51,7 @@ pairing(good, dips, aubergine).
 pairing(good, 'Eastern Mediterranean cuisine', aubergine).
 pairing(good, fennel, aubergine).
 pairing(good, 'fennel seeds', aubergine).
-pairing(good, 'French cuisine, esp. Provençal', aubergine).
+pairing(good, 'french cuisine', aubergine). % esp. Provençal
 pairing(good, 'garam masala', aubergine).
 pairing(excellent, garlic, aubergine).
 pairing(great, ginger, aubergine).
@@ -66,7 +66,7 @@ pairing(good, lentils, aubergine).
 pairing(good, 'Middle Eastern cuisine', aubergine).
 pairing(good, mint, aubergine).
 pairing(great, miso, aubergine).
-pairing(good, 'mushrooms, esp. button, shiitake', aubergine).
+pairing(good, mushrooms, aubergine). % esp. button, shiitake
 pairing(good, 'mustard, Dijon', aubergine).
 pairing(good, 'oil: peanut, sesame', aubergine).
 pairing(excellent, 'olive oil', aubergine).

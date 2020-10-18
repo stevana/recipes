@@ -88,7 +88,7 @@ pairing(great, 'brown butter sauce', cauliflower).
 pairing(great, 'cheese sauce', cauliflower).
 pairing(great, 'cream sauce', cauliflower).
 pairing(great, 'hollandaise sauce', cauliflower).
-pairing(great, 'Mornay sauce', cauliflower).
+pairing(great, 'mornay sauce', cauliflower).
 pairing(good, scallions, cauliflower).
 pairing(good, scallops, cauliflower).
 pairing(good, shallots, cauliflower).

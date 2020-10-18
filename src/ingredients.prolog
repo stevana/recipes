@@ -1,4 +1,5 @@
-:- multifile([taste/2,
+:- multifile([general_season/2,
+              taste/2,
               has_function/2,
               has_weight/2,
               has_volume/2,
@@ -7,8 +8,10 @@
               affinities/2]).
 
 :- consult('ingredients/aubergine').
+:- consult('ingredients/beetroot').
 :- consult('ingredients/cauliflower').
 :- consult('ingredients/celery').
+:- consult('ingredients/grapefruit').
 :- consult('ingredients/pumpkin').
 :- consult('ingredients/mushrooms').
 
@@ -220,6 +223,9 @@ acid('sherry vinegar').
 acid(lemon).
 acid(lime).
 acid(orange).
+
+cheese(Ingredient) :-
+    sub_atom(Ingredient, _, _, 0, cheese).
 
 vegetable(cauliflower).
 vegetable(pumpkin).

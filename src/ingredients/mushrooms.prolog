@@ -102,7 +102,7 @@ pairing(good, scallions, mushrooms).
 pairing(good, seafood, mushrooms).
 pairing(good, 'sesame oil', mushrooms).
 pairing(excellent, shallots, mushrooms).
-pairing(great, 'sherry, dry', mushrooms). % XXX:  (e.g., manzanilla)
+pairing(great, 'dry sherry', mushrooms). % XXX:  (e.g., manzanilla)
 pairing(good, 'sour cream', mushrooms).
 pairing(good, 'soy sauce', mushrooms).
 pairing(good, spinach, mushrooms).
