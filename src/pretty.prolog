@@ -32,11 +32,8 @@ print_table1(P) :-
 % print_table1(dish).
 
 seasonal :-
-    month(Month),
-    findall(a(I, Score), (season(I, Month, Score), Score >= 100), Is),
-    sort(1, @=<, Is, SortedBySeason),
-    sort(2, @>=, SortedBySeason, SortedByName),
-    maplist(ppa, SortedByName).
+    seasonal_(Is),
+    maplist(ppa, Is).
 
 season_colour(100, 100).
 season_colour(150, 200).
@@ -65,15 +62,12 @@ score(great,       2).
 score(good,        1).
 
 goes_with(I) :-
-    findall(b(J, SS), (pairing(S, J, I), score(S, SS)), Is),
-    sort(1, @=<, Is, SortedByScore),
-    sort(2, @>=, SortedByScore, SortedByName),
-    maplist(ppb, SortedByName).
+    goes_with_(I, Is),
+    maplist(ppb, Is).
 
 both(I, J) :-
-    findall(Ps, two_ingredient_pairings(I, J, Ps), Pss),
-    sort(1, @>=, Pss, Qss),
-    maplist(ppc, Qss).
+    both_(I, J, Is),
+    maplist(ppc, Is).
 
 %?- both(aubergine, mushrooms).
 

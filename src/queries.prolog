@@ -112,3 +112,19 @@ two_ingredient_pairings(I, J, CombinedScore-Ps) :-
     setof(L, pairing(T, L, J), Ls),
     combined_score(S, T, CombinedScore),
     intersection(Ks, Ls, Ps).
+
+seasonal_(Is) :-
+    month(Month),
+    findall(a(J, Score), (season(J, Month, Score), Score >= 100), Js),
+    sort(1, @=<, Js, SortedBySeason),
+    sort(2, @>=, SortedBySeason, SortedByName),
+    Is = SortedByName.
+
+goes_with_(I, SortedByName) :-
+    findall(b(J, SS), (pairing(S, J, I), score(S, SS)), Is),
+    sort(1, @=<, Is, SortedByScore),
+    sort(2, @>=, SortedByScore, SortedByName).
+
+both_(I, J, Qss) :-
+    findall(Ps, two_ingredient_pairings(I, J, Ps), Pss),
+    sort(1, @>=, Pss, Qss).
