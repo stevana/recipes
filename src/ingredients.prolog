@@ -1,4 +1,5 @@
 :- multifile([general_season/2,
+              botanical_relatives/2,
               taste/2,
               has_function/2,
               has_weight/2,
@@ -9,11 +10,15 @@
 
 :- consult('ingredients/aubergine').
 :- consult('ingredients/beetroot').
+:- consult('ingredients/cabbage').
+:- consult('ingredients/red_cabbage').
 :- consult('ingredients/cauliflower').
 :- consult('ingredients/celery').
+:- consult('ingredients/garlic').
 :- consult('ingredients/grapefruit').
-:- consult('ingredients/pumpkin').
 :- consult('ingredients/mushrooms').
+:- consult('ingredients/potatoes').
+:- consult('ingredients/pumpkin').
 
 % Vegetables in season
 

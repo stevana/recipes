@@ -73,7 +73,7 @@ pairing(excellent, 'olive oil', aubergine).
 pairing(great, 'olives: black, green', aubergine).
 pairing(excellent, onions, aubergine). % XXX: , esp. red, Spanish, yellow
 pairing(good, oregano, aubergine).
-pairing(good, 'paprika (garnish)', aubergine).
+pairing(good, paprika, aubergine). % garnish
 pairing(excellent, 'flat-leaf parsley', aubergine).
 pairing(good, pasta, aubergine).
 pairing(excellent, 'black pepper', aubergine).
