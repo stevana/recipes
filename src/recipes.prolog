@@ -16,7 +16,7 @@ time(180, gulash).
 contains(oil, gulash).
 contains(onion, gulash).
 contains('paprika powder', gulash).
-contains(mushroom, gulash).
+contains(mushrooms, gulash).
 contains(meat, gulash).
 contains('potato starch', gulash).
 diet(vegan, gulash).
