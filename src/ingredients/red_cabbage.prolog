@@ -2,7 +2,7 @@ general_season(autumn-winter, 'red cabbage').
 
 techniques('red cabbage', [braise, marinate, raw]).
 
-pairing(excellent, apples, 'red cabbage'). % : Golden Delicious, Rome, tart</p>
+pairing(excellent, apples, 'red cabbage'). % Golden Delicious, Rome, tart
 pairing(good, bacon, 'red cabbage').
 pairing(great, 'bay leaf', 'red cabbage').
 pairing(good, butter, 'red cabbage').

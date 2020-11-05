@@ -11,14 +11,15 @@
 :- consult('ingredients/aubergine').
 :- consult('ingredients/beetroot').
 :- consult('ingredients/cabbage').
-:- consult('ingredients/red_cabbage').
 :- consult('ingredients/cauliflower').
 :- consult('ingredients/celery').
 :- consult('ingredients/garlic').
 :- consult('ingredients/grapefruit').
+:- consult('ingredients/kohlrabi').
 :- consult('ingredients/mushrooms').
 :- consult('ingredients/potatoes').
 :- consult('ingredients/pumpkin').
+:- consult('ingredients/red_cabbage').
 
 % Vegetables in season
 

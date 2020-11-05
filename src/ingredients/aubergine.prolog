@@ -74,11 +74,11 @@ pairing(great, 'olives: black, green', aubergine).
 pairing(excellent, onions, aubergine). % XXX: , esp. red, Spanish, yellow
 pairing(good, oregano, aubergine).
 pairing(good, paprika, aubergine). % garnish
-pairing(excellent, 'flat-leaf parsley', aubergine).
+pairing(excellent, 'parsley, flat-leaf', aubergine).
 pairing(good, pasta, aubergine).
 pairing(excellent, 'black pepper', aubergine).
 pairing(excellent, 'white pepper', aubergine).
-pairing(good, 'peppers, piquillo (e.g., Spanish cuisine)', aubergine).
+pairing(good, 'peppers, piquillo', aubergine). % (e.g., Spanish cuisine)
 pairing(good, 'pine nuts', aubergine).
 pairing(good, pomegranate, aubergine).
 pairing(good, prosciutto, aubergine).
