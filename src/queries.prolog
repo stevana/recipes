@@ -110,7 +110,7 @@ combined_score(Xs, S) :-
     length(Scores, Len),
     S is round(Sum / Len).
 
-all_(Is, E) :-
+all_(Is, F) :-
     findall(Jss, findall(S-Js, (member(I, Is),
                                 setof(J, pairing(S, J, I), Js)), Jss), [Jsss]),
     findall(S-Vs, (member(K1-Vs1, Jsss),
@@ -123,4 +123,12 @@ all_(Is, E) :-
     sort(1, @>=, A, B),
     group_pairs_by_key(B, C),
     map_values(flatten, C, D),
-    map_values(sort(0, @<), D, E).
+    map_values(sort(0, @<), D, E),
+    month(Month),
+    map_values(maplist(add_season(Month)), E, F).
+
+add_season(M, I, I-S) :- default_season(I, M, S).
+
+default_season(I, M, S) :-
+    ( season(I, M, T) -> S = T
+    ; S = -1).

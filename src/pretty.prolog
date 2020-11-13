@@ -61,26 +61,35 @@ seasonal :-
     seasonal_(Is),
     maplist(ppa, Is).
 
-season_colour(100, 100).
-season_colour(150, 200).
-season_colour(200, 255).
+season_colour(-1,  fg(white)).
+season_colour(0,   fg(red)).
+season_colour(25,  fg(yellow)).
+season_colour(50,  fg(yellow)).
+season_colour(100, fg(0, 100, 0)).
+season_colour(125, fg(0, 125, 0)).
+season_colour(150, fg(0, 200, 0)).
+season_colour(200, fg(0, 255, 0)).
 
 ppa(a(I, S)) :-
     season_colour(S, Colour),
-    ansi_format([fg(0, Colour, 0)], '~w~n', [I]).
+    ansi_format([Colour], '~w~n', [I]).
 
 ppkv(4-Is) :-
-    maplist(atom_string, Is, Ss),
-    maplist(string_upper, Ss, Us),
-    maplist([U]>>ansi_format([bold], '*~s ~n', [U]), Us).
+    map_keys(atom_string, Is, Ss),
+    map_keys(string_upper, Ss, Us),
+    maplist(([U-S]>>(season_colour(S, Colour),
+             ansi_format([bold, Colour], '*~s ~n', [U]))), Us).
 ppkv(3-Is) :-
-    maplist(atom_string, Is, Ss),
-    maplist(string_upper, Ss, Us),
-    maplist([U]>>ansi_format([bold], '~s ~n', [U]), Us).
+    map_keys(atom_string, Is, Ss),
+    map_keys(string_upper, Ss, Us),
+    maplist(([U-S]>>(season_colour(S, Colour),
+             ansi_format([bold, Colour], '~s ~n', [U]))), Us).
 ppkv(2-Is) :-
-    maplist([I]>>ansi_format([bold], '~w ~n', [I]), Is).
+    maplist(([I-S]>>(season_colour(S, Colour),
+             ansi_format([bold, Colour], '~w ~n', [I]))), Is).
 ppkv(1-Is) :-
-    maplist([I]>>ansi_format([], '~w ~n', [I]), Is).
+    maplist(([I-S]>>(season_colour(S, Colour),
+             ansi_format([Colour], '~w ~n', [I]))), Is).
 
 score(exceptional, 4).
 score(excellent,   3).
