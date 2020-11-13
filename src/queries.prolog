@@ -2,6 +2,7 @@
 
 :- consult(recipes).
 :- consult(ingredients).
+:- consult(utils).
 
 fast_dinner(T, D) :-
     dish(D),
@@ -47,19 +48,12 @@ slow_dinner(T, D) :-
 %@ D = bolognese
 
 in_season(M, V) :-
-
     season(V, M, 200).
 
 %?- in_season(sep, V).
 %@ V = aubergine ;
 %@ V = celery ;
 %@ V = cauliflower ;
-
-any(_, [], _) :- false.
-any(P, [H|T], X) :-
-    ( call(P, H) -> X = H
-    ; any(P, T, X)
-    ).
 
 dish_in_season(M, I, D) :-
     dish(D),
@@ -96,22 +90,7 @@ pair(S, J, I) :-
 %@ I = cream ;
 %@ I = milk ;
 
-score1(exceptional, 4).
-score1(excellent,   3).
-score1(great,       2).
-score1(good,        1).
-
-combined_score(X, Y, S) :-
-    score1(X, S1),
-    score1(Y, S2),
-    plus(S1, S2, Sum),
-    S is round(Sum / 2).
-
-two_ingredient_pairings(I, J, CombinedScore-Ps) :-
-    setof(K, pairing(S, K, I), Ks),
-    setof(L, pairing(T, L, J), Ls),
-    combined_score(S, T, CombinedScore),
-    intersection(Ks, Ls, Ps).
+% ----------------------------------------------------------------------
 
 seasonal_(Is) :-
     month(Month),
@@ -120,11 +99,28 @@ seasonal_(Is) :-
     sort(2, @>=, SortedBySeason, SortedByName),
     Is = SortedByName.
 
-goes_with_(I, SortedByName) :-
-    findall(b(J, SS), (pairing(S, J, I), score(S, SS)), Is),
-    sort(1, @=<, Is, SortedByScore),
-    sort(2, @>=, SortedByScore, SortedByName).
+score1(exceptional, 4).
+score1(excellent,   3).
+score1(great,       2).
+score1(good,        1).
 
-both_(I, J, Qss) :-
-    findall(Ps, two_ingredient_pairings(I, J, Ps), Pss),
-    sort(1, @>=, Pss, Qss).
+combined_score(Xs, S) :-
+    maplist(score1, Xs, Scores),
+    sum_list(Scores, Sum),
+    length(Scores, Len),
+    S is round(Sum / Len).
+
+all_(Is, E) :-
+    findall(Jss, findall(S-Js, (member(I, Is),
+                                setof(J, pairing(S, J, I), Js)), Jss), [Jsss]),
+    findall(S-Vs, (member(K1-Vs1, Jsss),
+                   member(K2-Vs2, Jsss),
+                   ( Is = [_] -> true
+                   ; Vs1 \= Vs2
+                   ),
+                   combined_score([K1, K2], S),
+                   intersection(Vs1, Vs2, Vs)), A),
+    sort(1, @>=, A, B),
+    group_pairs_by_key(B, C),
+    map_values(flatten, C, D),
+    map_values(sort(0, @<), D, E).

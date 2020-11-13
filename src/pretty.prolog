@@ -22,6 +22,8 @@ print_carbs(C) :-
 print_ingredient(I) :-
     format('  * ~w~n', [I]).
 
+% ----------------------------------------------------------------------
+
 print_table1(P) :-
     findall(X, call(P, X), Xs),
     term_to_atom(P, Name),
@@ -30,49 +32,6 @@ print_table1(P) :-
     maplist(writeln, Xs).
 
 % print_table1(dish).
-
-seasonal :-
-    seasonal_(Is),
-    maplist(ppa, Is).
-
-season_colour(100, 100).
-season_colour(150, 200).
-season_colour(200, 255).
-
-ppa(a(I, S)) :-
-    season_colour(S, Colour),
-    ansi_format([fg(0, Colour, 0)], '~w~n', [I]).
-
-ppb(b(I, 4)) :-
-    atom_string(I, S),
-    string_upper(S, U),
-    ansi_format([bold], '*~s ~n', [U]).
-ppb(b(I, 3)) :-
-    atom_string(I, S),
-    string_upper(S, U),
-    ansi_format([bold], '~s ~n', [U]).
-ppb(b(I, 2)) :-
-    ansi_format([bold], '~w ~n', [I]).
-ppb(b(I, 1)) :-
-    ansi_format([], '~w ~n', [I]).
-
-score(exceptional, 4).
-score(excellent,   3).
-score(great,       2).
-score(good,        1).
-
-goes_with(I) :-
-    goes_with_(I, Is),
-    maplist(ppb, Is).
-
-both(I, J) :-
-    both_(I, J, Is),
-    maplist(ppc, Is).
-
-%?- both(aubergine, mushrooms).
-
-ppc(K-Vs) :-
-    maplist([V]>>ppb(b(V, K)), Vs).
 
 map_list_to_pairs2(_, _, [], []).
 map_list_to_pairs2(P, Q, [X|Xs], [K-V|KVs]) :-
@@ -95,6 +54,46 @@ print_table2(R) :-
 flip(R, X, Y) :- call(R, Y, X).
 
 % print_table2(flip(contains))
+
+% ----------------------------------------------------------------------
+
+seasonal :-
+    seasonal_(Is),
+    maplist(ppa, Is).
+
+season_colour(100, 100).
+season_colour(150, 200).
+season_colour(200, 255).
+
+ppa(a(I, S)) :-
+    season_colour(S, Colour),
+    ansi_format([fg(0, Colour, 0)], '~w~n', [I]).
+
+ppkv(4-Is) :-
+    maplist(atom_string, Is, Ss),
+    maplist(string_upper, Ss, Us),
+    maplist([U]>>ansi_format([bold], '*~s ~n', [U]), Us).
+ppkv(3-Is) :-
+    maplist(atom_string, Is, Ss),
+    maplist(string_upper, Ss, Us),
+    maplist([U]>>ansi_format([bold], '~s ~n', [U]), Us).
+ppkv(2-Is) :-
+    maplist([I]>>ansi_format([bold], '~w ~n', [I]), Is).
+ppkv(1-Is) :-
+    maplist([I]>>ansi_format([], '~w ~n', [I]), Is).
+
+score(exceptional, 4).
+score(excellent,   3).
+score(great,       2).
+score(good,        1).
+
+all(Is) :-
+    all_(Is, A),
+    maplist(ppkv, A).
+
+% all([aubergine, mushrooms]).
+
+% ----------------------------------------------------------------------
 
 annotate([], _, []).
 annotate([K-Vs|KVs1], P, [K-Ws|KVs2]) :-
