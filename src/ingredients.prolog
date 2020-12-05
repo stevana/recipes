@@ -13,8 +13,10 @@
 :- consult('ingredients/cabbage').
 :- consult('ingredients/cauliflower').
 :- consult('ingredients/celery').
+:- consult('ingredients/celery_root').
 :- consult('ingredients/garlic').
 :- consult('ingredients/grapefruit').
+:- consult('ingredients/kale').
 :- consult('ingredients/kohlrabi').
 :- consult('ingredients/mushrooms').
 :- consult('ingredients/potatoes').
@@ -112,10 +114,10 @@ season(kale, 10, 50).
 season(kale, 11, 200).
 season(kale, 12, 200).
 
-season(potato, 9, 200).
-season(potato, 10, 200).
-season(potato, 11, 100).
-season(potato, 12, 100).
+season(potatoes, 9, 200).
+season(potatoes, 10, 200).
+season(potatoes, 11, 100).
+season(potatoes, 12, 100).
 
 season(kohlrabi, 9, 200).
 season(kohlrabi, 10, 200).
@@ -184,11 +186,6 @@ season(beetroot, 10, 200).
 season(beetroot, 11, 200).
 season(beetroot, 12, 100).
 
-season('red cabbage', 9, 200).
-season('red cabbage', 10, 200).
-season('red cabbage', 11, 200).
-season('red cabbage', 12, 100).
-
 season(cucumbers, 9, 200).
 season(cucumbers, 10, 100).
 season(cucumbers, 11, 50).
@@ -234,6 +231,11 @@ season('jerusalem artichoke', 10, 200).
 season('jerusalem artichoke', 11, 200).
 season('jerusalem artichoke', 12, 50).
 
+season('red cabbage', 9, 200).
+season('red cabbage', 10, 200).
+season('red cabbage', 11, 200).
+season('red cabbage', 12, 100).
+
 season('white cabbage', 9, 200).
 season('white cabbage', 10, 200).
 season('white cabbage', 11, 200).
@@ -258,10 +260,10 @@ season(courgette, 10, 200).
 season(courgette, 11, 100).
 season(courgette, 12, 50).
 
-season(onion, 9, 200).
-season(onion, 10, 200).
-season(onion, 11, 100).
-season(onion, 12, 100).
+season(onions, 9, 200).
+season(onions, 10, 200).
+season(onions, 11, 100).
+season(onions, 12, 100).
 
 % ----------------------------------------------------------------------
 

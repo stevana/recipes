@@ -15,6 +15,7 @@ map_values(F, [K-V|KVs], [K-W|KWs]) :-
     map_values(F, KVs, KWs).
 
 intersections([], []).
+intersections([_], []) :- !.
 intersections([X|Xs], Ys) :- intersections_(Xs, X, Ys).
 
 intersections_([], Acc, Acc).
